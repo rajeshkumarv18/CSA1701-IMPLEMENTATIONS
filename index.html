@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduPulse AI - Academic SEO Optimization & Analytics Platform</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Navigation Header -->
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="brand-text">
+          <h1>EduPulse AI</h1>
+          <span>Academic SEO Optimizer System</span>
+        </div>
+      </div>
+
+      <div class="nav-controls">
+        <div class="institution-badge">
+          <i class="fas fa-university"></i>
+          <span>State University System</span>
+        </div>
+        
+        <button class="btn btn-secondary btn-sm" id="export-json-btn">
+          <i class="fas fa-file-download"></i> Export JSON Report
+        </button>
+        <button class="btn btn-teal btn-sm" id="export-snippet-btn">
+          <i class="fas fa-code"></i> Copy HTML Head Code
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Layout with Sidebar -->
+    <div class="main-wrapper">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="nav-group-label">Navigation & Views</div>
+        
+        <button class="nav-tab active" data-tab="pane-dashboard">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard & Scores</span>
+        </button>
+
+        <button class="nav-tab" data-tab="pane-optimizer">
+          <i class="fas fa-edit"></i>
+          <span>Webpage Input Form</span>
+        </button>
+
+        <button class="nav-tab" data-tab="pane-diff">
+          <i class="fas fa-columns"></i>
+          <span>Before vs. After Diff</span>
+        </button>
+
+        <button class="nav-tab" data-tab="pane-sitemap">
+          <i class="fas fa-sitemap"></i>
+          <span>XML Sitemap Audit</span>
+        </button>
+
+        <button class="nav-tab" data-tab="pane-pipeline">
+          <i class="fas fa-project-diagram"></i>
+          <span>SEO Analysis Pipeline</span>
+        </button>
+
+        <button class="nav-tab" data-tab="pane-keywords">
+          <i class="fas fa-key"></i>
+          <span>Keyword Matrix & KEI</span>
+        </button>
+
+        <div class="nav-group-label" style="margin-top:auto;">Preset Page Loader</div>
+        <div style="padding: 0 0.5rem;">
+          <select id="preset-page-select" class="custom-select" style="width:100%; font-size:0.8rem;">
+            <option value="cs-dept">Computer Science B.S. Program</option>
+            <option value="admissions-aid">Financial Aid & Scholarships</option>
+            <option value="biomed-research">Biomedical Genomics Institute</option>
+            <option value="online-mba">Executive Online MBA</option>
+            <option value="student-health">Student Health & Wellness</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Content Area -->
+      <main class="content-area">
+
+        <!-- 1. DASHBOARD & SCORES PANE -->
+        <section id="pane-dashboard" class="tab-pane active">
+          <div class="pane-header flex-between">
+            <div>
+              <h2 id="dashboard-page-title">Computer Science B.S. Degree Program</h2>
+              <p id="dashboard-page-url" class="text-teal" style="font-family:var(--font-code); font-size:0.85rem;">https://university.edu/academics/cs/undergrad</p>
+            </div>
+            <div>
+              <span class="badge-change positive" id="score-delta-badge">+58 Score Boost</span>
+            </div>
+          </div>
+
+          <!-- Score Gauges Grid -->
+          <div class="grid-2 mt-2">
+            <div class="glass-card">
+              <h3 style="font-size:1rem; margin-bottom:1rem; color:var(--text-muted);">Optimization Score Comparison</h3>
+              <div class="score-circle-container">
+                
+                <!-- Before Gauge -->
+                <div class="score-guage">
+                  <div class="score-ring" id="gauge-before-score" style="--gauge-color: #f43f5e;">
+                    <svg viewBox="0 0 100 100">
+                      <circle class="bg" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="score-number text-rose">38</div>
+                  </div>
+                  <div class="score-label">Original Score</div>
+                </div>
+
+                <div style="font-size: 1.5rem; color: var(--text-dim);"><i class="fas fa-arrow-right"></i></div>
+
+                <!-- After Gauge -->
+                <div class="score-guage">
+                  <div class="score-ring" id="gauge-after-score" style="--gauge-color: #10b981;">
+                    <svg viewBox="0 0 100 100">
+                      <circle class="bg" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="score-number text-teal">96</div>
+                  </div>
+                  <div class="score-label">AI Optimized Score</div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Detailed Score Attribute Breakdown -->
+            <div class="glass-card">
+              <h3 style="font-size:1rem; margin-bottom:1rem; color:var(--text-muted);">Attribute Score Breakdown</h3>
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Attribute</th>
+                      <th>Original</th>
+                      <th>Optimized</th>
+                      <th>Delta</th>
+                    </tr>
+                  </thead>
+                  <tbody id="score-breakdown-body">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Search Metrics Cards -->
+          <div class="grid-4 mt-3">
+            
+            <div class="glass-card metric-card" style="--card-accent: var(--primary);">
+              <div class="metric-header">
+                <span class="metric-title">Precision Score</span>
+                <div class="metric-icon"><i class="fas fa-bullseye"></i></div>
+              </div>
+              <div class="metric-value" id="metric-precision">92.0%</div>
+              <div class="metric-sub">
+                <i class="fas fa-check-circle text-teal"></i>
+                <span id="metric-precision-sub">Before: 33.3%</span>
+              </div>
+            </div>
+
+            <div class="glass-card metric-card" style="--card-accent: var(--accent-teal);">
+              <div class="metric-header">
+                <span class="metric-title">Recall Score</span>
+                <div class="metric-icon"><i class="fas fa-filter"></i></div>
+              </div>
+              <div class="metric-value" id="metric-recall">100.0%</div>
+              <div class="metric-sub">
+                <i class="fas fa-arrow-up text-teal"></i>
+                <span id="metric-recall-sub">Before: 25.0%</span>
+              </div>
+            </div>
+
+            <div class="glass-card metric-card" style="--card-accent: var(--accent-purple);">
+              <div class="metric-header">
+                <span class="metric-title">F1-Score</span>
+                <div class="metric-icon"><i class="fas fa-balance-scale"></i></div>
+              </div>
+              <div class="metric-value" id="metric-f1">95.8%</div>
+              <div class="metric-sub">
+                <i class="fas fa-award text-purple"></i>
+                <span id="metric-f1-sub">Before: 28.5%</span>
+              </div>
+            </div>
+
+            <div class="glass-card metric-card" style="--card-accent: var(--accent-amber);">
+              <div class="metric-header">
+                <span class="metric-title">Avg KEI Index</span>
+                <div class="metric-icon"><i class="fas fa-chart-bar"></i></div>
+              </div>
+              <div class="metric-value" id="metric-kei">842</div>
+              <div class="metric-sub">
+                <i class="fas fa-fire text-amber"></i>
+                <span id="metric-kei-sub">High Search Volume Impact</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 2. WEBPAGE INPUT FORM PANE -->
+        <section id="pane-optimizer" class="tab-pane">
+          <div class="pane-header">
+            <h2>Academic Webpage Input Form</h2>
+            <p>Input custom academic webpage metadata, target search queries, and content for real-time AI optimization.</p>
+          </div>
+
+          <div class="glass-card">
+            <form id="custom-seo-form">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label for="input-url">Webpage URL</label>
+                  <input type="url" id="input-url" class="form-control" placeholder="https://university.edu/academics/program" required>
+                </div>
+                <div class="form-group">
+                  <label for="input-h1">Existing H1 Tag</label>
+                  <input type="text" id="input-h1" class="form-control" placeholder="Current page main heading">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="input-title">Existing Title Tag</label>
+                <input type="text" id="input-title" class="form-control" placeholder="Current title tag" required>
+              </div>
+
+              <div class="form-group">
+                <label for="input-meta">Existing Meta Description</label>
+                <textarea id="input-meta" class="form-control" placeholder="Current meta description..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="input-queries">Target Academic Search Queries (Comma Separated)</label>
+                <input type="text" id="input-queries" class="form-control" placeholder="e.g. computer science degree, bachelor of science, university admissions">
+              </div>
+
+              <div class="form-group">
+                <label for="input-content">Page Content / Body Text</label>
+                <textarea id="input-content" class="form-control" style="min-height:120px;" placeholder="Paste webpage body text here..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-magic"></i> Run AI SEO Optimization
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- 3. BEFORE VS AFTER DIFF VIEWER PANE -->
+        <section id="pane-diff" class="tab-pane">
+          <div class="pane-header">
+            <h2>Structured Tabular Data Breakdown (Before vs. After)</h2>
+            <p>Side-by-side comparison of original un-optimized attributes against AI-generated SEO titles, meta tags, headers, and semantic anchor text.</p>
+          </div>
+
+          <div class="diff-container" id="diff-rows-container">
+            <!-- Populated dynamically by UI JS -->
+          </div>
+
+          <div class="glass-card mt-3">
+            <div class="flex-between mb-2">
+              <h3 style="font-size:1.1rem;"><i class="fas fa-code text-teal"></i> Production HTML Head Code Snippet</h3>
+              <button class="btn btn-secondary btn-sm" onclick="EduUI.copyHeadSnippet()">
+                <i class="fas fa-copy"></i> Copy Code
+              </button>
+            </div>
+            <pre class="code-block" id="html-snippet-display"><!-- HTML Code Snippet --></pre>
+          </div>
+        </section>
+
+        <!-- 4. XML SITEMAP AUDITOR PANE -->
+        <section id="pane-sitemap" class="tab-pane">
+          <div class="pane-header">
+            <h2>XML Sitemap Audit & Technical Verification</h2>
+            <p>Verify sitemap inclusion, priority scoring, last modified timestamps, and generate clean XML sitemap nodes.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="glass-card">
+              <div class="flex-between mb-2">
+                <h3 style="font-size:1.1rem;">Sitemap Health Audit</h3>
+                <span id="sitemap-status-badge" class="tag-badge green">HEALTHY</span>
+              </div>
+              <div id="sitemap-issues-list" class="mt-2">
+                <!-- Issues populated by JS -->
+              </div>
+            </div>
+
+            <div class="glass-card">
+              <h3 style="font-size:1.1rem; margin-bottom:1rem;">Generated XML Sitemap Node</h3>
+              <pre class="sitemap-audit-box" id="sitemap-xml-code"><!-- XML output --></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. SEO ANALYSIS PIPELINE PANE -->
+        <section id="pane-pipeline" class="tab-pane">
+          <div class="pane-header">
+            <h2>Visual SEO Analysis Pipeline Flowchart</h2>
+            <p>Interactive 5-phase execution pipeline demonstrating automated crawl, sitemap verification, keyword mapping, AI generation, and score calculation.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="pipeline-container" id="pipeline-flow-container">
+              <!-- Flow steps generated by JS -->
+            </div>
+            <div style="text-align:center; color:var(--text-muted); font-size:0.85rem; margin-top:1rem;">
+              <i class="fas fa-info-circle text-teal"></i> Click on any pipeline stage node to inspect algorithm parameters, inputs, and outputs.
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. KEYWORD MATRIX & KEI PANE -->
+        <section id="pane-keywords" class="tab-pane">
+          <div class="pane-header">
+            <h2>Search Query Matrix & Keyword Effectiveness Index (KEI)</h2>
+            <p>Quantitative analysis of search volume, competition density, and KEI score formula: <code>KEI = (Volume^2) / Competition</code>.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Target Search Query</th>
+                    <th>Monthly Search Vol</th>
+                    <th>Competition Score</th>
+                    <th>KEI Index</th>
+                    <th>Impact Rating</th>
+                  </tr>
+                </thead>
+                <tbody id="keyword-matrix-body">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Overlay for Pipeline Step Inspection -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Pipeline Details</h3>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body" style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+        <!-- Modal body populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/seoEngine.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.EduUI) {
+        window.EduUI.init();
+      }
+    });
+  </script>
+</body>
+</html>
